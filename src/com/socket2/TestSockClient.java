@@ -1,4 +1,4 @@
-package com.socket;
+package com.socket2;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -11,7 +11,6 @@ public class TestSockClient {
 	public static void main(String[] args) {
 		DataInputStream dis = null;
 		DataOutputStream dos = null;
-
 		Scanner input = new Scanner(System.in);
 		String s = null;
 		Socket socket = null;
@@ -19,10 +18,11 @@ public class TestSockClient {
 		try {
 			// 客户端程序启动
 			// 数据交互
-			do {
-				socket = new Socket("localhost", 8888);
-				dis = new DataInputStream(socket.getInputStream());
-				dos = new DataOutputStream(socket.getOutputStream());
+			socket = new Socket("127.0.0.1", 8888);
+			System.out.println("客户端已连接！");
+			dis = new DataInputStream(socket.getInputStream());
+			dos = new DataOutputStream(socket.getOutputStream());
+			do{
 
 				System.out.println("YOU:");
 				s = input.next();
@@ -32,13 +32,8 @@ public class TestSockClient {
 				if ((str2 = dis.readUTF()) != null) {
 					System.out.println(str2);
 				}
-			} while (!s.equals("88"));
-			// dos.close();
-			// dis.close();
-			// socket.close();
-		} catch (SocketException e) {
-			// e.printStackTrace();
-			System.out.println("对方关闭了！");
+			}while(!s.equals("88"));
+			System.out.println("对方88了！");
 		} catch (IOException e) {
 			e.printStackTrace();
 		} finally {

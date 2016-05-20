@@ -18,8 +18,7 @@ public class TestSockServer {
 			// 准备
 			ServerSocket s = new ServerSocket(8888);
 			System.out.println("聊天程序启动！");
-
-			// 循环
+			// 循环启动程序
 			while (true) {
 				// 连接
 				socket = s.accept();
@@ -36,7 +35,6 @@ public class TestSockServer {
 			}
 		} catch (SocketException e) {
 			System.out.println("对方关闭了！");
-			// e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
 		} finally {
@@ -48,5 +46,11 @@ public class TestSockServer {
 				e.printStackTrace();
 			}
 		}
+	}
+}
+
+class Client extends Thread {
+	public void run() {
+
 	}
 }
