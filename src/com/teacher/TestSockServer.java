@@ -73,7 +73,8 @@ public class TestSockServer {
 				}
 			} catch (IOException e) {
 				System.out.println("客户端" + socket.getPort() + "退出");
-				// e.printStackTrace();
+				clientList.remove(this);
+			    //e.printStackTrace();
 			} finally {
 				// 关闭各种流
 				try {
